@@ -26,10 +26,10 @@ num_dict = {
     'trinta': 30,
     'quarenta': 40,
     'cinquenta': 50,
-    'sessenta': 60, 
-    'setenta': 70, 
-    'oitenta': 80, 
-    'noventa': 90, 
+    'sessenta': 60,
+    'setenta': 70,
+    'oitenta': 80,
+    'noventa': 90,
     'cem': 100,
     'cento': 100,
     'duzentos': 200,
@@ -49,7 +49,8 @@ num_dict = {
     'trilhões': 1000000000000,
 }
 
-def brw2n(brword):    
+
+def brw2n(brword):
     default_patterns = [
         'trilhões'
         'trilhão'
@@ -58,7 +59,7 @@ def brw2n(brword):
         'milhões',
         'milhão',
         'mil',
-    ] 
+    ]
     for dp in default_patterns:
         pattern = r'([A-Za-z0-9]+) e ([A-Za-z0-9]+) {}'.format(dp)
         result = re.search(pattern, brword)
@@ -68,7 +69,7 @@ def brw2n(brword):
         if result:
             number = (str(dp) + " ") * num_dict[result.group(1)]
             brword = brword.replace(result.group(1) + " "+dp, number)
-    
+
     words = brword.split(' ')
     number = 0
     for word in words:
@@ -76,5 +77,3 @@ def brw2n(brword):
             number += int(num_dict[word])
 
     return number
-
-print (brw2n("vinte e um"))

@@ -1,4 +1,4 @@
-# words2num
+# brwords2number
 
 Normalização de texto inverso para números. Atualmente suporta apenas a localidade pt-BR.
 
